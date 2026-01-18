@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  background-image: url("assets/images/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: slowZoom 45s ease-in-out infinite alternate;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 1.5s ease;
+}
+
+@keyframes slowZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 0;
+  transition: background 1.5s ease;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.95);
+  width: 90%;
+  max-width: 480px;
+  padding: 40px;
+  border-radius: 28px;
+  text-align: center;
+  box-shadow: 0 30px 70px rgba(0,0,0,0.35);
+  animation: breathe 6s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.015); }
+  100% { transform: scale(1); }
+}
+
+h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 30px;
+  color: #e63946;
+  margin-bottom: 20px;
+}
+
+#start {
+  padding: 12px 28px;
+  border: none;
+  border-radius: 30px;
+  background: #e63946;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  margin-bottom: 25px;
+}
+
+#text {
+  font-size: 17px;
+  line-height: 1.9;
+  color: #333;
+  white-space: pre-line;
+  min-height: 260px;
+}
+
+.buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.hidden {
+  display: none;
+}
+
+button {
+  padding: 14px 36px;
+  border: none;
+  border-radius: 40px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.25s;
+}
+
+button:hover {
+  transform: scale(1.08);
+}
+
+#yes {
+  background: #e63946;
+  color: white;
+}
+
+#no {
+  background: #ddd;
+}
+
+#result {
+  margin-top: 25px;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+/* YES MODE */
+body.yes .overlay {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+body.yes .container {
+  animation: none;
+  transform: scale(1.05);
+}
+
+/* NO MODE */
+body.no .overlay {
+  background: rgba(0, 0, 0, 0.65);
+}
+
+body.no .container {
+  animation: none;
+  opacity: 0.92;
+}
+
+/* Hearts */
+.heart {
+  position: fixed;
+  bottom: -40px;
+  font-size: 22px;
+  animation: floatUp 4s linear forwards;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-120vh);
+    opacity: 0;
+  }
+}
